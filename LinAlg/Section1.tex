@@ -1,0 +1,76 @@
+\section{Orthogonality, Projections and Least squares}
+
+\subsection{Projection}
+\subsubsection*{Problem description}
+subspace $S \subset \R^m$ 
+and $b \in \R^m$ and $b \notin S$ 
+
+\begin{center}
+\color{blue}
+\textit{the closest point $p \in S$ to $b$  is orthogonally beneath $b$} \\
+\textit{ $b - p \perp S$}
+\end{center}
+
+$S = span(a_1, ..., a_n)$ \\
+
+let $A$ be: \\
+
+\begin{center}
+$A =  
+\begin{bmatrix}
+ | &  & | \\
+ a_1 & ... & a_n \\
+ | &  & | 
+\end{bmatrix}
+$
+\end{center}
+
+Note: columns of A are \ctext{red}{ linearly independent}
+
+\subsubsection*{Normal equation}
+
+\begin{center}
+\textit{since $b - p \perp S$ \imp $a_k \perp b - p$} \\ 
+
+\imp $A^T  (b - p) = 0$ \\
+
+\myeq \ctext{blue}{$A^T A \hat{x} = A^T b$} \hsp $|$ \hsp $p = A\hat{x}$
+
+\end{center}
+
+This is called the \impt{Normal equation}. \\
+
+\vsp
+
+\subsubsection*{Invertibility of $A^T A$ }
+% Proof why At A is invertible follows
+Note \ctext{red}{A} has \ctext{red}{independent columns} 
+\imp $N(A) = \{0\}$
+\hspace{0.2cm} $|$  \hspace{0.2cm} $( Ax = a_1 x_1 + a_2 x_2 + ... + a_n x_n )$
+
+Hence if \impt{$N(A^T A) = N(A)$} \imp $A^T A$ has full rank
+\imp $A^T A$ is invertible
+
+\vsp
+\textbf{Proof} \textit{that $A^T A$ is invertible, i.e. \impt{$N(A^T A) = N(A)$}}: \\
+$N(A) \subset N(A^T A)$: \\
+\indt{$x \in N(A)$ \imp $Ax = 0$ \imp $A^T  (Ax) = A^T 0 = 0$} 
+
+$N(A^T A) \subset N(A)$: \\
+\indt{$x \in N(A^T A)$ \imp $A^T Ax = 0$} \\
+\indt{\imp $x^T A^T Ax = 0$} \\
+\indt{\myeq $(Ax)^T Ax = 0$} \\
+\indt{\myeq $\lVert Ax \rVert^2 = 0$} \\
+\indt{\myeq $\lVert b \rVert^2 = 0$} \hsp $|$ \hsp $Ax = b$ \\
+\indt{\myeq ${b_1}^2 + ... + {b_k}^2 = 0$} \\
+\indt{\imp $0 + ... + 0 = 0$} \\
+\indt{\imp $b = 0$} \\
+\indt{\myeq $Ax = 0$} \\
+\indt{\imp $x \in N(A)$}
+
+Hence \impt{$A^T A$ is invertible}
+
+\subsubsection*{Final Solution}
+$\hat{x} = (A^T A)^{-1} A^T b$ \\
+\imp $p = A\hat{x} =$ \impt{$A(A^T A)^{-1} A^T b$} \\
+Hence our \impt{projection matrix} is $A(A^T A)^{-1} A^T b$
